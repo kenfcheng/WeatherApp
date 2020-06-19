@@ -35,7 +35,7 @@ function populateCityWeather(city, citySearchList) {
     url: queryURL,
     method: "GET",
   })
-    // Store all of the retrieved data inside of an object called "weather"
+    // Stores data into "weather"
     .then(function (weather) {
       // Log the queryURL
       console.log(queryURL);
@@ -43,9 +43,9 @@ function populateCityWeather(city, citySearchList) {
       // Log the resulting object
       console.log(weather);
 
-      const nowMoment = moment();
+      let nowMoment = moment();
 
-      const displayMoment = $("<h3>");
+      let displayMoment = $("<h3>");
       $("#city-name").empty();
       $("#city-name").append(
         displayMoment.text("(" + nowMoment.format("M/D/YYYY") + ")")
@@ -79,7 +79,7 @@ function populateCityWeather(city, citySearchList) {
       $.ajax({
         url: queryURL3,
         method: "GET",
-        // Store all of the retrieved data inside of an object called "uvIndex"
+        // Stores data in UV Index
       }).then(function (uvIndex) {
         console.log(uvIndex);
 
@@ -93,7 +93,7 @@ function populateCityWeather(city, citySearchList) {
         $.ajax({
           url: queryURL2,
           method: "GET",
-          // Store all of the retrieved data inside of an object called "forecast"
+          // Stores data to "forecast"
         }).then(function (forecast) {
           console.log(queryURL2);
 
@@ -112,7 +112,7 @@ function populateCityWeather(city, citySearchList) {
               forecastDate.text(nowMoment.add(1, "days").format("M/D/YYYY"))
             );
 
-            const forecastIcon = $("<img>");
+            let forecastIcon = $("<img>");
             forecastIcon.attr(
               "src",
               "https://openweathermap.org/img/w/" +
@@ -143,9 +143,9 @@ function populateCityWeather(city, citySearchList) {
 }
 
 $(document).ready(function () {
-  const citySearchListStringified = localStorage.getItem("citySearchList");
+  let citySearchListStringified = localStorage.getItem("citySearchList");
 
-  const citySearchList = JSON.parse(citySearchListStringified);
+  let citySearchList = JSON.parse(citySearchListStringified);
 
   if (citySearchList == null) {
     citySearchList = {};
@@ -158,10 +158,10 @@ $(document).ready(function () {
 
   $("#search-button").on("click", function (event) {
     event.preventDefault();
-    var city = $("#city-input").val().trim().toLowerCase();
+    let city = $("#city-input").val().trim().toLowerCase();
 
     if (city != "") {
-      //Check to see if there is any text entered
+      //Looks for entered text
 
       citySearchList[city] = true;
       localStorage.setItem("citySearchList", JSON.stringify(citySearchList));
@@ -175,7 +175,7 @@ $(document).ready(function () {
 
   $("#city-list").on("click", "button", function (event) {
     event.preventDefault();
-    var city = $(this).text();
+    let city = $(this).text();
 
     populateCityWeather(city, citySearchList);
 
