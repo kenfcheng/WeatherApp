@@ -98,7 +98,8 @@ function populateCityWeather(city, citySearchList) {
           console.log(queryURL2);
 
           console.log(forecast);
-          // Loop through the forecast list array and display a single forecast entry/time (5th entry of each day which is close to the highest temp/time of the day) from each of the 5 days
+          // Loop through the forecast list array and display.
+          // Forecast display in entry
           for (let i = 6; i < forecast.list.length; i += 8) {
             // 6, 14, 22, 30, 38
             let forecastDate = $("<h5>");
