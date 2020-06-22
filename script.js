@@ -20,11 +20,11 @@ function createCityList(citySearchList) {
 
 function populateCityWeather(city, citySearchList) {
   createCityList(citySearchList);
-
-  let queryURL = ("api.openweathermap.org/data/2.5/forecast?q={city name}&appid=33076c7235c2a39d07b0fde1994a80b1=" = +city);
+  // 5 Day forecaster
+  let queryURL = ("api.openweathermap.org/data/2.5/forecast?q=Raleigh&appid=33076c7235c2a39d07b0fde1994a80b1=" = +city);
 
   let queryURL2 =
-    "api.openweathermap.org/data/2.5/forecast?q={city name}&appid=33076c7235c2a39d07b0fde1994a80b1=" +
+    "api.openweathermap.org/data/2.5/forecast?q=Raleigh&appid=33076c7235c2a39d07b0fde1994a80b1=" +
     city;
 
   let latitude;
