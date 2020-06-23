@@ -21,13 +21,16 @@ function createCityList(citySearchList) {
 function populateCityWeather(city, citySearchList) {
   createCityList(citySearchList);
   // 5 Day forecaster
+
   let queryURL =
-    "api.openweathermap.org/data/2.5/forecast?q={city}&appid=33076c7235c2a39d07b0fde1994a80b1=" +
-    city;
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&appid=33076c7235c2a39d07b0fde1994a80b1";
 
   let queryURL2 =
-    "api.openweathermap.org/data/2.5/forecast?q={city}&appid=33076c7235c2a39d07b0fde1994a80b1=" +
-    city;
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&appid=33076c7235c2a39d07b0fde1994a80b1";
 
   let latitude;
 
@@ -72,7 +75,7 @@ function populateCityWeather(city, citySearchList) {
       longitude = weather.coord.lon;
 
       let queryURL3 =
-        "api.openweathermap.org/data/2.5/uvi/forecast?&units=imperial&appid=33076c7235c2a39d07b0fde1994a80b1=" +
+        "http://api.openweathermap.org/data/2.5/uvi/forecast?&units=imperial&appid=33076c7235c2a39d07b0fde1994a80b1=" +
         "&lat=" +
         latitude +
         "&lon=" +
