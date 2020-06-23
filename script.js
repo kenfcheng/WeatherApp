@@ -23,7 +23,7 @@ function populateCityWeather(city, citySearchList) {
   // 5 Day forecaster
 
   let queryURL =
-    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=33076c7235c2a39d07b0fde1994a80b1";
 
@@ -114,11 +114,11 @@ function populateCityWeather(city, citySearchList) {
               forecastDate.text(nowMoment.add(1, "days").format("M/D/YYYY"))
             );
 
-            let forecastIcon = $("<img>");
-            forecastIcon.attr(
+            let weatherIcon = $("<img>");
+            weatherIcon.attr(
               "src",
               "https://openweathermap.org/img/w/" +
-                forecast.list[i].weather[0].icon +
+                weather.weather[0].icon +
                 ".png"
             );
 
