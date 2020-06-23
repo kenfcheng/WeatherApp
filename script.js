@@ -25,12 +25,12 @@ function populateCityWeather(city, citySearchList) {
   let queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
-    "&appid=33076c7235c2a39d07b0fde1994a80b1";
+    "&appid=33076c7235c2a39d07b0fde1994a80b1&units=imperial";
 
   let queryURL2 =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city +
-    "&appid=33076c7235c2a39d07b0fde1994a80b1";
+    "&appid=33076c7235c2a39d07b0fde1994a80b1&units=imperial";
 
   let latitude;
 
@@ -62,7 +62,7 @@ function populateCityWeather(city, citySearchList) {
       let weatherIcon = $("<img>");
       weatherIcon.attr(
         "src",
-        "openweathermap.org/img/w/" + weather.weather[0].icon + ".png"
+        "https://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"
       );
       $("#current-icon").empty();
       $("#current-icon").append(weatherIcon);
@@ -74,8 +74,7 @@ function populateCityWeather(city, citySearchList) {
       latitude = weather.coord.lat;
       longitude = weather.coord.lon;
 
-      let queryURL3 =
-        "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=33076c7235c2a39d07b0fde1994a80b1&lat={lat}&lon={lon}&cnt={cnt}";
+      let queryURL3 = `http://api.openweathermap.org/data/2.5/uvi/forecast?appid=33076c7235c2a39d07b0fde1994a80b1&lat=${latitude}&lon=${longitude}`;
 
       $.ajax({
         url: queryURL3,
@@ -114,8 +113,8 @@ function populateCityWeather(city, citySearchList) {
               forecastDate.text(nowMoment.add(1, "days").format("M/D/YYYY"))
             );
 
-            let weatherIcon = $("<img>");
-            weatherIcon.attr(
+            const forecastIcon = $("<img>");
+            forecastIcon.attr(
               "src",
               "https://openweathermap.org/img/w/" +
                 weather.weather[0].icon +
