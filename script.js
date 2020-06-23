@@ -1,17 +1,17 @@
 function createCityList(citySearchList) {
   $("#city-list").empty();
 
-  let keys = Object.keys(citySearchList);
-  for (let i = 0; i < keys.length; i++) {
-    let cityListEntry = $("<button>");
+  const keys = Object.keys(citySearchList);
+  for (var i = 0; i < keys.length; i++) {
+    var cityListEntry = $("<button>");
     cityListEntry.addClass("list-group-item list-group-item-action");
 
-    let splitStr = keys[i].toLowerCase().split(" ");
-    for (let j = 0; j < splitStr.length; j++) {
+    var splitStr = keys[i].toLowerCase().split(" ");
+    for (var j = 0; j < splitStr.length; j++) {
       splitStr[j] =
         splitStr[j].charAt(0).toUpperCase() + splitStr[j].substring(1);
     }
-    let titleCasedCity = splitStr.join(" ");
+    var titleCasedCity = splitStr.join(" ");
     cityListEntry.text(titleCasedCity);
 
     $("#city-list").append(cityListEntry);
@@ -21,10 +21,12 @@ function createCityList(citySearchList) {
 function populateCityWeather(city, citySearchList) {
   createCityList(citySearchList);
   // 5 Day forecaster
-  let queryURL = ("api.openweathermap.org/data/2.5/forecast?q=Raleigh&appid=33076c7235c2a39d07b0fde1994a80b1=" = +city);
+  let queryURL =
+    "api.openweathermap.org/data/2.5/forecast?q={city}&appid=33076c7235c2a39d07b0fde1994a80b1=" +
+    city;
 
   let queryURL2 =
-    "api.openweathermap.org/data/2.5/forecast?q=Raleigh&appid=33076c7235c2a39d07b0fde1994a80b1=" +
+    "api.openweathermap.org/data/2.5/forecast?q={city}&appid=33076c7235c2a39d07b0fde1994a80b1=" +
     city;
 
   let latitude;
@@ -57,7 +59,7 @@ function populateCityWeather(city, citySearchList) {
       let weatherIcon = $("<img>");
       weatherIcon.attr(
         "src",
-        "https://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"
+        "openweathermap.org/img/w/" + weather.weather[0].icon + ".png"
       );
       $("#current-icon").empty();
       $("#current-icon").append(weatherIcon);
@@ -70,7 +72,7 @@ function populateCityWeather(city, citySearchList) {
       longitude = weather.coord.lon;
 
       let queryURL3 =
-        "https://api.openweathermap.org/data/2.5/uvi/forecast?&units=imperial&appid=33076c7235c2a39d07b0fde1994a80b1=" +
+        "api.openweathermap.org/data/2.5/uvi/forecast?&units=imperial&appid=33076c7235c2a39d07b0fde1994a80b1=" +
         "&lat=" +
         latitude +
         "&lon=" +
