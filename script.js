@@ -20,13 +20,13 @@ function createCityList(citySearchList) {
 
 function populateCityWeather(city, citySearchList) {
   createCityList(citySearchList);
-  // 5 Day forecaster
 
+  // Current weather
   let queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=33076c7235c2a39d07b0fde1994a80b1&units=imperial";
-
+  // Forecast
   let queryURL2 =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city +
@@ -156,7 +156,7 @@ $(document).ready(function () {
 
   $("#current-weather").hide();
   $("#forecast-weather").hide();
-
+  // On click searches cities
   $("#search-button").on("click", function (event) {
     event.preventDefault();
     let city = $("#city-input").val().trim().toLowerCase();
