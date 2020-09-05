@@ -7,6 +7,5 @@ Methods:
 Javascript, HTML, CSS
 Uses API's from Openweather and Bootstrap css framework.
 
-Live Deploy: https://kenfcheng.github.io/WeatherAppHmwrk06/
-
+Live Deploy: https://kenfcheng.github.io/WeatherApp/
 Pictures of work can be found in "Screenshots" folder.
